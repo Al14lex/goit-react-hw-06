@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import { useId } from "react";
 import * as Yup from "yup";
-import { nanoid } from 'nanoid'
+// import { nanoid } from 'nanoid'
 import { ErrorMessage } from "formik";
 
 import { addContact } from "../../redux/contactsSlice";
@@ -21,7 +21,7 @@ const telFieldId = useId();
   const dispatch = useDispatch();
 
 const handleSubmit = (values, actions) => {
-       values.id = nanoid();
+      //  values.id = nanoid();
         const { username, tel } = values;
         dispatch(addContact(username, tel));
         actions.resetForm();
@@ -36,7 +36,7 @@ return (
       <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}
-    validationSchema={FeedbackSchema}>
+          validationSchema={FeedbackSchema}>
     
           <Form style={{
               display: "flex",
